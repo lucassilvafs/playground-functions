@@ -4,18 +4,23 @@ function compareTrue(value1, value2) {
 }
 
 // Desafio 2
-function calcArea() {
-  // seu código aqui
+function calcArea(base, height) {
+  return (base * height) / 2;
 }
 
 // Desafio 3
-function splitSentence() {
-  // seu código aqui
+function splitSentence(sentence) {
+  let array = [];
+  array = sentence.split(' ');
+  return array;
 }
 
 // Desafio 4
-function concatName() {
-  // seu código aqui
+function concatName(array) {
+  let nome1, nome2;
+  nome1 = array[0];
+  nome2 = array[array.length - 1];
+  return nome2 + ', ' + nome1;
 }
 
 // Desafio 5
