@@ -17,7 +17,8 @@ function splitSentence(sentence) {
 
 // Desafio 4
 function concatName(array) {
-  let nome1, nome2;
+  let nome1;
+  let nome2;
   nome1 = array[0];
   nome2 = array[array.length - 1];
   return nome2 + ', ' + nome1;
@@ -30,8 +31,16 @@ function footballPoints(wins, ties) {
 }
 
 // Desafio 6
-function highestCount() {
-  // seu código aqui
+function highestCount(array) {
+  let highest = 0;
+  let count = 0;
+  highest = Math.max.apply(null, array);
+  for (let index of array) {
+    if (index === highest) {
+      count += 1;
+    }
+  }
+  return count;
 }
 
 // Desafio 7
