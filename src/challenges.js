@@ -17,11 +17,9 @@ function splitSentence(sentence) {
 
 // Desafio 4
 function concatName(array) {
-  let nome1;
-  let nome2;
-  nome1 = array[0];
-  nome2 = array[array.length - 1];
-  return nome2 + ', ' + nome1;
+  let nome1 = array[0];
+  let nome2 = array[array.length - 1];
+  return `${nome2}, ${nome1}`;
 }
 
 // Desafio 5
@@ -45,39 +43,38 @@ function highestCount(array) {
 
 // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
-  let gato1 = 0;
-  let gato2 = 0;
+  let gato1 = mouse - cat1;
+  let gato2 = mouse - cat2;
   if (cat1 > mouse) {
     gato1 = cat1 - mouse;
-  } else {
-    gato1 = mouse - cat1;
   }
   if (cat2 > mouse) {
     gato2 = cat2 - mouse;
-  } else {
-    gato2 = mouse - cat2;
   }
   if (gato1 === gato2) {
     return 'os gatos trombam e o rato foge';
-  } else if (gato1 < gato2) {
+  }
+  if (gato1 < gato2) {
     return 'cat1';
   }
   return 'cat2';
 }
 
 // Desafio 8
+function aux1(num) {
+  if (num % 5 === 0) {
+    return 'fizzBuzz';
+  }
+  return 'fizz';
+}
 function fizzBuzz(array) {
   let results = [];
   for (let index = 0; index < array.length; index += 1) {
-    if (array[index] % 3 === 0 && array[index] % 5 === 0) {
-      results[index] = 'fizzBuzz';
-    } else if (array[index] % 3 === 0) {
-      results[index] = 'fizz';
+    if (array[index] % 3 === 0) {
+      results[index] = aux1(array[index]);
     } else if (array[index] % 5 === 0) {
       results[index] = 'buzz';
-    } else {
-      results[index] = 'bug!';
-    }
+    } else results[index] = 'bug!';
   }
   return results;
 }
