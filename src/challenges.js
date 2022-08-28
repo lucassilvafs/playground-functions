@@ -100,9 +100,29 @@ function decode(code) {
 }
 
 // Desafio 10
-function techList() {
-  // seu código aqui
+function sort(techs) {
+  if (techs.length > 4) {
+    techs.sort();
+  }
+  return techs;
 }
+function techList(techNames, nome) {
+  if (techNames.length === 0 || nome === undefined) {
+    return 'Vazio!';
+  }
+  techNames = sort(techNames);
+  let result = [];
+  for (let index = 0; index < techNames.length; index += 1) {
+    result.push({
+      tech: techNames[index],
+      name: nome,
+    });
+  }
+  return result;
+}
+// const techNames = ['React', 'Jest', 'HTML', 'CSS', 'JavaScript'];
+// const name = 'Lucas';
+// console.log(techList(techNames, name));
 
 module.exports = {
   calcArea,
