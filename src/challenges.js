@@ -120,9 +120,6 @@ function techList(techNames, nome) {
   }
   return result;
 }
-// const techNames = ['React', 'Jest', 'HTML', 'CSS', 'JavaScript'];
-// const name = 'Lucas';
-// console.log(techList(techNames, name));
 
 module.exports = {
   calcArea,
