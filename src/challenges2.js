@@ -1,26 +1,29 @@
 // Desafio 11
-// eslint-disable-next-line sonarjs/cognitive-complexity
-function repeated(phoneNumber) {
-  let repeat = 0;
-  let aux;
-  for (let index = 0; index < phoneNumber.length; index += 1) {
-    aux = phoneNumber[index];
-    repeat = 0;
-    for (let index2 = 0; index2 < phoneNumber.length; index2 += 1) {
-      if (phoneNumber[index2] === aux) {
-        repeat += 1;
-      }
-    }
-    if (repeat >= 3) {
-      return true;
-    }
+function repeatedAux(storage) {
+  let counter = 0;
+  for (let i = 0; i < storage.length; i += 1) {
+    if (storage[i].quantidade >= 3) counter += 1;
   }
-  return false;
+  return counter;
+}
+function repeated(phoneNumber) {
+  let result = phoneNumber.reduce((acc, val) => {
+    if (!acc[val]) {
+      acc[val] = {
+        número: val,
+        quantidade: 1,
+      };
+    } else acc[val].quantidade += 1;
+    return acc;
+  }, {});
+  let storage = Object.values(result);
+  return repeatedAux(storage);
 }
 function verifier(phoneNumber) {
   let repeats = repeated(phoneNumber);
   for (let index = 0; index < phoneNumber.length; index += 1) {
-    if (phoneNumber[index] < 0 || phoneNumber[index] > 9 || repeats === true) {
+    let valor = phoneNumber[index];
+    if (valor < 0 || valor > 9 || repeats > 0) {
       return true;
     }
   }
@@ -38,6 +41,7 @@ function generatePhoneNumber(phoneNumber) {
   let part3 = `${phoneNumber[7]}${phoneNumber[8]}${phoneNumber[9]}${phoneNumber[10]}`;
   return part1 + part2 + part3;
 }
+
 // Desafio 12
 function triangleCheckAux(lineA, lineB, lineC) {
   let AB = Math.abs(lineA - lineB);
