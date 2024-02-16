@@ -1,1 +1,1 @@
-Repositório com alguns exercícios de JavaScript
+Repositório com alguns exercícios utilizando JavaScript
